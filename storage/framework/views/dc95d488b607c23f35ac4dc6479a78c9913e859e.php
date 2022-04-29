@@ -1,0 +1,2 @@
+<?php echo $__env->make('user_dashboard.layouts.footer-scripts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php /**PATH C:\xampp\htdocs\Amea_Today\resources\views/user_dashboard/layouts/footer.blade.php ENDPATH**/ ?>

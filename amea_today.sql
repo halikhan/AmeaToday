@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2022 at 12:14 AM
+-- Generation Time: Apr 30, 2022 at 01:42 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -398,7 +398,8 @@ CREATE TABLE `password_resets` (
 
 INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
 ('test@gmail.com', '$2y$10$u2pd2TPz6UWC81I27MHYoO.Xiv7ohuoYML/TecSKzMzY6QpKQGFOi', '2022-04-22 13:08:39'),
-('user@ameatoday.com', '$2y$10$zsRtqgqG5Gv44X5TEVVYNuQBX6NHBWrivyGMjELaUs.uf5q7lK74.', '2022-04-25 16:17:05');
+('user@ameatoday.com', '$2y$10$zsRtqgqG5Gv44X5TEVVYNuQBX6NHBWrivyGMjELaUs.uf5q7lK74.', '2022-04-25 16:17:05'),
+('iamjamesalbertt@gmail.com', '$2y$10$3LqW7HALZ.8LiZ6L0bLv.O/MlUbHVqcwubOJiv3aXO4Bl3ig6Wjbi', '2022-04-27 19:05:55');
 
 -- --------------------------------------------------------
 
@@ -506,17 +507,15 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `last_name`, `email`, `address`, `contact`, `message`, `type`, `image`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', NULL, 'admin@ameatoday.com', NULL, NULL, NULL, 1, '2022-04-27__1651084199__admin.png', NULL, '$2y$10$5tD.ZYqYPDtKJDAAlSL8L.ERiw9gPnlmcDAvmRWEr/CXg7UiW0wwu', NULL, '2022-03-28 18:50:55', '2022-04-27 13:29:59'),
-(3, 'Max', 'Barnes', 'max@gmail.com', NULL, '+987-3312313-3', 'Velit deleniti et p', 2, NULL, NULL, '$2y$10$tKhjP451xBlaMnzViNtmfeULppQGyfSuPztxj4zyOZbd7fmjAOEom', NULL, '2022-04-01 14:43:05', '2022-04-19 16:15:38'),
-(9, 'Shan', 'John', 'user@ameatoday.com', '40 Cedarstone Drive3857 Heliport Loop', '0341-54534', NULL, 2, '2022-04-04__1649103103__505-5058091_agent-icon-png-male-profile-logo-png-transparent.png', NULL, '123456', NULL, '2022-04-04 10:40:16', '2022-04-25 16:03:36'),
-(14, 'Admin', NULL, 'master@ameatoday.com', NULL, NULL, NULL, 1, '2022-04-12__1649776479__ee0e70b2ae91f7209f3a78247986e280.jpg', NULL, '$2y$10$JZiSZYwGpYXOr3qgdvEdOOwNkkcYuK65SBQGuQZ98C3apqPxnUiVe', NULL, '2022-04-05 17:19:34', '2022-04-27 12:18:40'),
-(22, 'user', 'test', 'test@gmail.com', NULL, NULL, NULL, 2, NULL, NULL, '$2y$10$Gj31hmpUUMosFEAKnmltWe3avzpm8BO.cxTq5GGdWSeshfV.rLyPa', NULL, '2022-04-18 13:13:13', '2022-04-19 16:16:18'),
-(25, 'add', 'Patrick', 'testome@gmail.com', NULL, NULL, NULL, 2, NULL, NULL, '$2y$10$xr70vGt/fYNLVtnVwDLjkuZ07X81kGKPDOIgC1Cp5O/kid5JWMPB6', NULL, '2022-04-18 13:19:03', '2022-04-19 15:18:13'),
-(29, 'Coach', 'Patrick', 'Coach@ameatoday.com', NULL, NULL, NULL, 3, NULL, NULL, '$2y$10$yN7qWlrdF2W0Nw6nfWoGkux17wXmXdAAPPbf5EvSh0NGnxE4WvGFy', NULL, '2022-04-20 16:31:02', '2022-04-20 16:31:02'),
-(30, 'student', 'Ali', 'student@ameatoday.com', NULL, NULL, NULL, 2, NULL, NULL, '$2y$10$ZxWkyng2J6br0mwwec2N7.WwDQ9MsHszQAv3N9aCsUMEVnYuX89XW', NULL, '2022-04-20 16:32:42', '2022-04-20 16:32:42'),
-(31, 'evaluate', 'Lowe', 'evaluate@gmail.com', NULL, NULL, NULL, 4, NULL, NULL, '$2y$10$sesw77JFVFKFsaSh2pyKZ.cAtM/xaVfdlUAavCS6hiUpGkGVQ2h1.', NULL, '2022-04-20 16:33:31', '2022-04-20 16:33:31'),
-(32, 'Angelica Estrada', 'Dudley', 'iamjamesalbertt@gmail.com', NULL, NULL, NULL, 2, NULL, NULL, '$2y$10$RAusHcI1qt4T08Gok73VVedUM1AqgWEFq.9rd4ZDQD3/C0D4iKEt6', 'ut9JC26cxRRY00dKk5Q403TiRobi0sOJTJ5FBJrEZP3mKliVf60m96ek5fu3', '2022-04-22 12:33:16', '2022-04-22 14:23:31'),
-(33, 'janaa', 'Patrick', 'Patrick@gmail.com', '40 Cedarstone Drive', '49441-853854', NULL, 2, NULL, NULL, '$2y$10$.z2ZdPg/AtuRMZQCfggQ2er5vWdXZE1QZtg/uYBu8XBOlHRX/0n/6', NULL, '2022-04-25 16:23:16', '2022-04-25 17:14:00'),
-(34, 'user', 'test', 'usertest@gmail.com', '40 Cedarstone Drive', '0341-853854546536', NULL, 3, NULL, NULL, '$2y$10$8GWRmMckcie/eB9vrMrjhuracB3XmvoLp2YhuAUHUhvFVMm/Ap.3.', NULL, '2022-04-25 17:21:35', '2022-04-27 15:19:46');
+(2, 'Admin', NULL, 'master@ameatoday.com', NULL, NULL, NULL, 1, '2022-04-12__1649776479__ee0e70b2ae91f7209f3a78247986e280.jpg', NULL, '$2y$10$JZiSZYwGpYXOr3qgdvEdOOwNkkcYuK65SBQGuQZ98C3apqPxnUiVe', NULL, '2022-04-05 17:19:34', '2022-04-27 12:18:40'),
+(3, 'user', 'test', 'coacwh@gmail.com', '40 Cedarstone Drive', '31323123', NULL, 3, NULL, NULL, '$2y$10$8GWRmMckcie/eB9vrMrjhuracB3XmvoLp2YhuAUHUhvFVMm/Ap.3.', NULL, '2022-04-25 17:21:35', '2022-04-27 19:16:10'),
+(35, 'Xander Duran', 'Carlson', 'student@gmail.comw', NULL, NULL, NULL, 2, NULL, NULL, '$2y$10$QOmYDUcayGfygECclJmOpeU4WDIYPXf4NGy3mM7Xp1VMO9Euqzrbu', NULL, '2022-04-29 11:19:39', '2022-04-29 11:19:39'),
+(36, 'Xaviera Sutton', 'Merrill', 'sydyhicyn@mailinator.com', NULL, NULL, NULL, 2, NULL, NULL, '$2y$10$x/7fT1vDWrKv7nrcHYvgleU1Wk/2qQzGbCjps5sfnHkaEtRjw3wpG', NULL, '2022-04-29 12:16:33', '2022-04-29 12:16:33'),
+(37, 'Quincy Knowles', 'Melendez', 'evaluawtor@gmail.com', NULL, NULL, NULL, 4, NULL, NULL, '$2y$10$WhfOOlHLMDnfhigl3ZWhY.7bzVmibIT7CbXS4y8OvJeSue9liJsja', NULL, '2022-04-29 12:16:44', '2022-04-29 12:16:44'),
+(38, 'Ian Foreman', 'Castro', 'test@gmail.com', NULL, NULL, NULL, 2, NULL, NULL, '$2y$10$8y6P4q1Ycd9pI8aSy/3ay.8Nx6xUxzoTFlzA5mx9VbNbX9zu8uyG.', NULL, '2022-04-29 13:01:17', '2022-04-29 13:01:17'),
+(39, 'Naida Howell', 'Long', 'student@gmail.com', NULL, NULL, NULL, 2, NULL, NULL, '$2y$10$jNbkPBARLwyugrjoN7jsceUTgAHgzQwt8kD8BXxR59eixH0vwAzti', NULL, '2022-04-29 17:55:10', '2022-04-29 17:55:10'),
+(40, 'Catherine Sparks', 'Pace', 'evaluator@gmail.com', NULL, NULL, NULL, 4, NULL, NULL, '$2y$10$HQVtBwePFhPtfiKNUBZV1.zHXur8Aa0C3W34PGNQKxEgVLQn62gIm', NULL, '2022-04-29 18:32:24', '2022-04-29 18:32:24'),
+(41, 'Emery Hahn', 'Sawyer', 'coach@gmail.com', NULL, NULL, NULL, 3, NULL, NULL, '$2y$10$9CMH/UOOKzpqs6DLHncNhOsvOIApMPgBitag.9mpdvOtBOYUR3hiy', NULL, '2022-04-29 18:33:52', '2022-04-29 18:33:52');
 
 -- --------------------------------------------------------
 
@@ -683,7 +682,7 @@ ALTER TABLE `background_audio`
 -- AUTO_INCREMENT for table `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `cms`
@@ -767,7 +766,7 @@ ALTER TABLE `subcriptions`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `videos`

@@ -76,7 +76,7 @@ Route::prefix('dashboard')->group(function () {
 
 Route::middleware(['preventBackHistory','isAdmin'])->group(function () {
 
-Route::middleware(['isAdmin'])->group(function () {
+    // Route::middleware(['isAdmin'])->group(function () {
 
     Route::get('/dashboard', function () {
         return view('dashboard.index');
@@ -246,7 +246,6 @@ Route::middleware(['isAdmin'])->group(function () {
 
     });
 
-});
 
 });
 
@@ -279,8 +278,8 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::get('private-all-state-pre', [HomeController::class, 'privateallStatePre'])->name('private-all-state-pre');
     Route::get('more-singers', [HomeController::class, 'moreSingers'])->name('more-singers');
     Route::get('Music-Producers', [HomeController::class, 'MusicProducers'])->name('Music-Producers');
-    Route::get('order-summary', [HomeController::class, 'orderSummary'])->name('order-summary');
-    Route::get('AmeaToday_checkout', [HomeController::class, 'checkout'])->name('AmeaToday_checkout');
+    Route::get('order-summary/{id}', [HomeController::class, 'orderSummary'])->name('order-summary');
+    Route::get('AmeaToday_checkout/{id}', [HomeController::class, 'checkout'])->name('AmeaToday_checkout');
     Route::get('AmeaToday_buy-now', [HomeController::class, 'buyNow'])->name('AmeaToday_buy-now');
 
 
@@ -309,20 +308,14 @@ Route::middleware(['isAdmin'])->group(function () {
 
 Route::middleware(['preventBackHistory','UserCheck'])->group(function () {
 
-Route::middleware(['UserCheck'])->group(function () {
-
     Route::get('AmeaToday_user-dashboard', [HomeController::class, 'dashboard'])->name('AmeaToday_user-dashboard');
+    // Route::get('user-order-summary{id}', [HomeController::class, 'order_summary'])->name('user-order_summary');
     Route::get('User_Profile_edit/{id}', [UserProfilecontroller::class, 'edit'])->name('User_Profile_edit');
     Route::post('User_Profile_update/{id}', [UserProfilecontroller::class, 'update'])->name('User_Profile_update');
-
     Route::get('User_Password_edit/{id}', [UserPasswordcontroller::class, 'edit'])->name('User_Password_edit');
     Route::post('User_Password_update/{id}', [UserPasswordcontroller::class, 'update'])->name('User_Password_update');
-
     Route::get('coaches', [Coachescontroller::class, 'index'])->name('coaches');
-
     Route::get('Evaluators', [EvaluatorsController::class, 'index'])->name('Evaluators');
-
-});
 
 });
 

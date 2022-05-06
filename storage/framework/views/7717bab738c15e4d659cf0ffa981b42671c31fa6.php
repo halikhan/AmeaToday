@@ -22,7 +22,13 @@
                                     <p>Sign up</p>
                             </div>
                             <div class="checkout-content">
+                                <?php if(Auth::user()): ?>
+                                <p>Sign in as a <?php echo e(@$getUser->email); ?>
+
+                                </p>
+                                <?php else: ?>
                                 <p>Sign in as a abc@example.com</p>
+                                <?php endif; ?>
                             </div>
                             <div class="checkout-input">
                                 <label for="">Email</label>
@@ -57,7 +63,7 @@
                             <div class="box-grey-backcolor mb3">
                                 <div class="order-box-content">
                                     <h5>Plan</h5>
-                                    <h5>AMEA Today</h5>
+                                    <h4><?php echo e(@$getOrderSummary->title); ?></h4>
                                 </div>
                                 <div class="order-box-content mt1">
                                     <h5>Duration</h5>
@@ -68,18 +74,18 @@
                                 </div>
                                 <div class="order-box-content mt5">
                                     <h5>Subtotal</h5>
-                                    <h5>$19.99</h5>
+                                    <h4>$<?php echo e(@$getOrderSummary->amount); ?></h4>
                                 </div>
                                 <div class="order-box-content mt1">
-                                    <h5>Sales Tax ( 7 %) </h5>
-                                    <h5>$1.40</h5>
+                                    <h5>Sales Tax ( <?php echo e(@$getOrderSummary->sale_tax); ?> % ) </h5>
+                                    <h4>$<?php echo e(@$getOrderSummary->total_tax); ?></h4>
                                 </div>
                                 <div class="box-line mt2">
                                     <span></span>
                                 </div>
                                 <div class="order-box-content mt3 mb3">
                                     <h5>Billed Yearly</h5>
-                                    <h5>$21.39</h5>
+                                    <h5>$<?php echo e(@$getOrderSummary->bill_yearly); ?></h5>
                                 </div>
                             </div>
                             <div class="mt7">
@@ -88,6 +94,7 @@
                             </div>
                         </div>
                     </div>
+                    
                 </div>
             </div>
             <?php echo $__env->make('Frontend.Layout.body.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

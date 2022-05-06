@@ -53,7 +53,6 @@ return [
     */
 
     'url' => env('APP_URL', 'http://localhost/Amea_Today'),
-
     'asset_url' => env('APP_URL', 'http://localhost/Amea_Today/piblic'),
 
 

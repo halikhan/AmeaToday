@@ -60,7 +60,20 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput10">Sale Tax.*</label>
+                                <input name="sale_tax" class="form-control btn-square"  id="exampleFormControlInput10" value="{{ $edit_data->sale_tax }}" type="number" placeholder="Sale Tax">
 
+                                @error('sale_tax')
+                                    <p class="help-block" style="color: red">
+                                        {{ $errors->first('sale_tax') }}
+                                    </p>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col">
                             <div class="mb-3">

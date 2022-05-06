@@ -13,11 +13,13 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="tabs-main-heading mt3 mb3">
-                        <h1> <?php if(Auth::user()->type == 2): ?>Student
+                        <h1>
+                            <?php if(Auth::user()->type == 2): ?>Student
                             <?php elseif(Auth::user()->type == 3): ?>Coach
                             <?php elseif(Auth::user()->type == 4): ?>Evaluator
                             <?php endif; ?>
-                            -Profile</h1>
+                            -Profile
+                        </h1>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -40,8 +42,8 @@ endif;
 unset($__errorArgs, $__bag); ?>
                 </div>
                 <div class="col-lg-6">
-
                 </div>
+
                 <div class="col-lg-6">
                     <div class="login-content2 placeholder-white">
                         <input type="text" name="last_name" value="<?php echo e($edit_data->last_name); ?>" id=""
@@ -62,8 +64,8 @@ endif;
 unset($__errorArgs, $__bag); ?>
                 </div>
                 <div class="col-lg-6">
-
                 </div>
+
                 <div class="col-lg-6">
                     <div class="login-content2 placeholder-white">
                         <input type="email" name="email" value="<?php echo e($edit_data->email); ?>"

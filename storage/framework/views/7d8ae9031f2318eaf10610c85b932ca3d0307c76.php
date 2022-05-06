@@ -43,6 +43,7 @@
                                         <th>#</th>
                                         <th>Title</th>
                                         <th>Amount</th>
+                                        <th>Sales Tax</th>
                                         <th>Type</th>
                                         <th>Mid Deatails</th>
                                         <th>Deatails</th>
@@ -55,6 +56,7 @@
                                             <td><?php echo e($key+1); ?></td>
                                             <td><?php echo e($value->title); ?></td>
                                             <td><?php echo e($value->amount); ?></td>
+                                            <td><?php echo e($value->total_tax); ?> %</td>
                                             <td><?php echo e($value->type); ?></td>
                                             <td><?php echo e($value->mid_details); ?></td>
                                             <td><?php echo e($value->deatails); ?></td>

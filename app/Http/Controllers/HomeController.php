@@ -69,12 +69,13 @@ class HomeController extends Controller
         // dd('AmeaToday');
         // $getAmeaToday = Frontend::where('page', '')->get();
         $getCopyrights = Config::where('email_type','Copyrights')->get();
-
         $getpackages = packages::all();
-        // return $getpackages;
-
         return view('Frontend.acees-amea-today',compact('getCopyrights','getpackages'));
+
+
     }
+
+
 
     public function educators(){
 
@@ -82,6 +83,7 @@ class HomeController extends Controller
         $getCopyrights = Config::where('email_type','Copyrights')->get();
         $getEducators = Frontend::where('page', '3')->get();
         return view('Frontend.educators',get_defined_vars());
+
     }
 
     public function educatorsBoosters(){
@@ -90,6 +92,7 @@ class HomeController extends Controller
         $getCopyrights = Config::where('email_type','Copyrights')->get();
         $getEducatorsBooster = Frontend::where('page', '4')->get();
         return view('Frontend.educators-Boosters',get_defined_vars());
+
     }
 
 
@@ -99,6 +102,7 @@ class HomeController extends Controller
         $getCopyrights = Config::where('email_type','Copyrights')->get();
         $getEducatorslaws = Frontend::where('page', '5')->get();
         return view('Frontend.educators-by-laws',get_defined_vars());
+
     }
     public function educatorsFundRaising(){
 
@@ -106,6 +110,7 @@ class HomeController extends Controller
         $getCopyrights = Config::where('email_type','Copyrights')->get();
         $geteducatorsFundRaising = Frontend::where('page', '6')->get();
         return view('Frontend.educators-fund-raising',get_defined_vars());
+
     }
 
     public function PreFestival(){
@@ -177,18 +182,36 @@ class HomeController extends Controller
         return view('Frontend.Music-Producers',get_defined_vars());
     }
 
-    public function orderSummary(){
+    public function orderSummary(Request $request, $id){
 
         // dd('privateInstrumental');
         $getCopyrights = Config::where('email_type','Copyrights')->get();
+        $getOrderSummary = packages::find($id);
+        //  $getOrderSummary = packages::findORfail($id);
+        // $getOrderSummary->title = $request->title;
+        // $getOrderSummary->deatails = $request->deatails;
+        // $getOrderSummary->amount = $request->amount;
+        // $getOrderSummary->save();
         return view('Frontend.order-summary',get_defined_vars());
     }
-    public function checkout(){
+    public function checkout(Request $request, $id){
 
-        // dd('AmeaToday_checkout');
-        $getCopyrights = Config::where('email_type','Copyrights')->get();
-        return view('Frontend.checkout',get_defined_vars());
+        if(!Auth::check()) {
+            // dd('No order');
+            $notification = array('UserMessage' =>'Kindly signed up first' , 'alert-type'=>'error' );
+             return back()->with($notification);
+        }else{
+
+            $getUser = User::find(Auth::user()->id);
+            // dd($getUser);
+            $getCopyrights = Config::where('email_type','Copyrights')->get();
+            if(!empty($getOrderSummary)){}
+            $getOrderSummary = packages::find($id);
+            return view('Frontend.checkout',get_defined_vars());
+        }
+
     }
+
     public function buyNow(){
 
         // dd('AmeaToday_Bynow');

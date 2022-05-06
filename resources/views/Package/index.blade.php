@@ -44,6 +44,7 @@
                                         <th>#</th>
                                         <th>Title</th>
                                         <th>Amount</th>
+                                        <th>Sales Tax</th>
                                         <th>Type</th>
                                         <th>Mid Deatails</th>
                                         <th>Deatails</th>
@@ -56,6 +57,7 @@
                                             <td>{{ $key+1 }}</td>
                                             <td>{{ $value->title }}</td>
                                             <td>{{ $value->amount }}</td>
+                                            <td>{{ $value->total_tax }} %</td>
                                             <td>{{ $value->type }}</td>
                                             <td>{{ $value->mid_details }}</td>
                                             <td>{{ $value->deatails }}</td>

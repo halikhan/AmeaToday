@@ -75,7 +75,28 @@ unset($__errorArgs, $__bag); ?>
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput10">Sale Tax.*</label>
+                                <input name="sale_tax" class="form-control btn-square"  id="exampleFormControlInput10" value="<?php echo e($edit_data->sale_tax); ?>" type="number" placeholder="Sale Tax">
 
+                                <?php $__errorArgs = ['sale_tax'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    <p class="help-block" style="color: red">
+                                        <?php echo e($errors->first('sale_tax')); ?>
+
+                                    </p>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col">
                             <div class="mb-3">

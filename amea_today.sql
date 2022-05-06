@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2022 at 01:42 AM
+-- Generation Time: May 07, 2022 at 12:48 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -325,6 +325,9 @@ CREATE TABLE `packages` (
   `mid_details` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `amount` float DEFAULT NULL,
+  `sale_tax` float DEFAULT NULL,
+  `total_tax` float DEFAULT NULL,
+  `bill_yearly` float DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -333,13 +336,13 @@ CREATE TABLE `packages` (
 -- Dumping data for table `packages`
 --
 
-INSERT INTO `packages` (`id`, `user_id`, `title`, `deatails`, `mid_details`, `type`, `amount`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'AMEA Student', 'Virtual private instructors and create a recruitment profile', 'Perfect for virtual private lessons and college recruitment.', 'Every year', 19.99, '2022-04-05 13:25:10', '2022-04-19 13:02:59'),
-(4, NULL, 'Private Instructor', 'Teach students from anywhere, at your convenience.', NULL, 'Every year', 29.99, '2022-04-05 17:12:09', '2022-04-19 13:04:34'),
-(6, NULL, 'Music Educators', 'Recruit students from anywhere in the country.', 'Frim K- College', 'Every year', 39.99, '2022-04-15 14:40:41', '2022-04-19 13:04:43'),
-(7, NULL, 'Arrangers/Composer', 'Build your following and conduct your virtual classrooms.', NULL, 'Every year', 19.99, '2022-04-15 14:41:57', '2022-04-19 13:04:49'),
-(8, NULL, 'Singer/Songwriter', 'Build your following and connect with voices everywhere.', NULL, 'Every year', 34.99, '2022-04-15 15:18:05', '2022-04-19 13:04:55'),
-(9, NULL, 'Music Producer', 'Hold virtual classes or find talent anywhere.', 'Connect with producers/engineers anywhere in the world', 'Every year', 49.99, '2022-04-15 15:19:19', '2022-04-19 13:05:01');
+INSERT INTO `packages` (`id`, `user_id`, `title`, `deatails`, `mid_details`, `type`, `amount`, `sale_tax`, `total_tax`, `bill_yearly`, `created_at`, `updated_at`) VALUES
+(1, NULL, 'AMEA Student', 'Virtual private instructors and create a recruitment profile', 'Perfect for virtual private lessons and college recruitment.', 'Every year', 19.99, 8, 1.6, 21.59, '2022-04-05 13:25:10', '2022-05-02 14:10:11'),
+(4, NULL, 'Private Instructor', 'Teach students from anywhere, at your convenience.', NULL, 'Every year', 29.99, 7, 2.1, 31, '2022-04-05 17:12:09', '2022-05-02 13:42:25'),
+(6, NULL, 'Music Educators', 'Recruit students from anywhere in the country.', 'Frim K- College', 'Every year', 39.99, 7, 2.8, 41, '2022-04-15 14:40:41', '2022-05-02 13:42:30'),
+(7, NULL, 'Arrangers/Composer', 'Build your following and conduct your virtual classrooms.', NULL, 'Every year', 19.99, 7, 1.4, 20, '2022-04-15 14:41:57', '2022-05-02 13:42:39'),
+(8, NULL, 'Singer/Songwriter', 'Build your following and connect with voices everywhere.', NULL, 'Every year', 34.99, 7, 2.45, 36, '2022-04-15 15:18:05', '2022-05-02 13:42:44'),
+(9, NULL, 'Music Producer', 'Hold virtual classes or find talent anywhere.', 'Connect with producers/engineers anywhere in the world', 'Every year', 49.99, 7, 3.5, 52, '2022-04-15 15:19:19', '2022-05-02 13:42:48');
 
 -- --------------------------------------------------------
 
@@ -498,24 +501,27 @@ CREATE TABLE `users` (
   `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `city` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `country` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `zip_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `last_name`, `email`, `address`, `contact`, `message`, `type`, `image`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', NULL, 'admin@ameatoday.com', NULL, NULL, NULL, 1, '2022-04-27__1651084199__admin.png', NULL, '$2y$10$5tD.ZYqYPDtKJDAAlSL8L.ERiw9gPnlmcDAvmRWEr/CXg7UiW0wwu', NULL, '2022-03-28 18:50:55', '2022-04-27 13:29:59'),
-(2, 'Admin', NULL, 'master@ameatoday.com', NULL, NULL, NULL, 1, '2022-04-12__1649776479__ee0e70b2ae91f7209f3a78247986e280.jpg', NULL, '$2y$10$JZiSZYwGpYXOr3qgdvEdOOwNkkcYuK65SBQGuQZ98C3apqPxnUiVe', NULL, '2022-04-05 17:19:34', '2022-04-27 12:18:40'),
-(3, 'user', 'test', 'coacwh@gmail.com', '40 Cedarstone Drive', '31323123', NULL, 3, NULL, NULL, '$2y$10$8GWRmMckcie/eB9vrMrjhuracB3XmvoLp2YhuAUHUhvFVMm/Ap.3.', NULL, '2022-04-25 17:21:35', '2022-04-27 19:16:10'),
-(35, 'Xander Duran', 'Carlson', 'student@gmail.comw', NULL, NULL, NULL, 2, NULL, NULL, '$2y$10$QOmYDUcayGfygECclJmOpeU4WDIYPXf4NGy3mM7Xp1VMO9Euqzrbu', NULL, '2022-04-29 11:19:39', '2022-04-29 11:19:39'),
-(36, 'Xaviera Sutton', 'Merrill', 'sydyhicyn@mailinator.com', NULL, NULL, NULL, 2, NULL, NULL, '$2y$10$x/7fT1vDWrKv7nrcHYvgleU1Wk/2qQzGbCjps5sfnHkaEtRjw3wpG', NULL, '2022-04-29 12:16:33', '2022-04-29 12:16:33'),
-(37, 'Quincy Knowles', 'Melendez', 'evaluawtor@gmail.com', NULL, NULL, NULL, 4, NULL, NULL, '$2y$10$WhfOOlHLMDnfhigl3ZWhY.7bzVmibIT7CbXS4y8OvJeSue9liJsja', NULL, '2022-04-29 12:16:44', '2022-04-29 12:16:44'),
-(38, 'Ian Foreman', 'Castro', 'test@gmail.com', NULL, NULL, NULL, 2, NULL, NULL, '$2y$10$8y6P4q1Ycd9pI8aSy/3ay.8Nx6xUxzoTFlzA5mx9VbNbX9zu8uyG.', NULL, '2022-04-29 13:01:17', '2022-04-29 13:01:17'),
-(39, 'Naida Howell', 'Long', 'student@gmail.com', NULL, NULL, NULL, 2, NULL, NULL, '$2y$10$jNbkPBARLwyugrjoN7jsceUTgAHgzQwt8kD8BXxR59eixH0vwAzti', NULL, '2022-04-29 17:55:10', '2022-04-29 17:55:10'),
-(40, 'Catherine Sparks', 'Pace', 'evaluator@gmail.com', NULL, NULL, NULL, 4, NULL, NULL, '$2y$10$HQVtBwePFhPtfiKNUBZV1.zHXur8Aa0C3W34PGNQKxEgVLQn62gIm', NULL, '2022-04-29 18:32:24', '2022-04-29 18:32:24'),
-(41, 'Emery Hahn', 'Sawyer', 'coach@gmail.com', NULL, NULL, NULL, 3, NULL, NULL, '$2y$10$9CMH/UOOKzpqs6DLHncNhOsvOIApMPgBitag.9mpdvOtBOYUR3hiy', NULL, '2022-04-29 18:33:52', '2022-04-29 18:33:52');
+INSERT INTO `users` (`id`, `name`, `last_name`, `email`, `address`, `contact`, `message`, `type`, `image`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `city`, `country`, `zip_code`) VALUES
+(1, 'Admin', NULL, 'admin@ameatoday.com', NULL, NULL, NULL, 1, '2022-04-27__1651084199__admin.png', NULL, '$2y$10$5tD.ZYqYPDtKJDAAlSL8L.ERiw9gPnlmcDAvmRWEr/CXg7UiW0wwu', NULL, '2022-03-28 18:50:55', '2022-04-27 13:29:59', NULL, NULL, NULL),
+(2, 'Admin', NULL, 'master@ameatoday.com', NULL, NULL, NULL, 1, '2022-04-12__1649776479__ee0e70b2ae91f7209f3a78247986e280.jpg', NULL, '$2y$10$JZiSZYwGpYXOr3qgdvEdOOwNkkcYuK65SBQGuQZ98C3apqPxnUiVe', NULL, '2022-04-05 17:19:34', '2022-04-27 12:18:40', NULL, NULL, NULL),
+(3, 'user', 'test', 'coacwh@gmail.com', '40 Cedarstone Drive', '31323123', NULL, 3, NULL, NULL, '$2y$10$8GWRmMckcie/eB9vrMrjhuracB3XmvoLp2YhuAUHUhvFVMm/Ap.3.', NULL, '2022-04-25 17:21:35', '2022-04-27 19:16:10', NULL, NULL, NULL),
+(35, 'Xander Duran', 'Carlson', 'student@gmail.comw', NULL, NULL, NULL, 2, NULL, NULL, '$2y$10$QOmYDUcayGfygECclJmOpeU4WDIYPXf4NGy3mM7Xp1VMO9Euqzrbu', NULL, '2022-04-29 11:19:39', '2022-04-29 11:19:39', NULL, NULL, NULL),
+(36, 'Xaviera Sutton', 'Merrill', 'sydyhicyn@mailinator.com', NULL, NULL, NULL, 2, NULL, NULL, '$2y$10$x/7fT1vDWrKv7nrcHYvgleU1Wk/2qQzGbCjps5sfnHkaEtRjw3wpG', NULL, '2022-04-29 12:16:33', '2022-04-29 12:16:33', NULL, NULL, NULL),
+(37, 'Quincy Knowles', 'Melendez', 'evaluawtor@gmail.com', NULL, NULL, NULL, 4, NULL, NULL, '$2y$10$WhfOOlHLMDnfhigl3ZWhY.7bzVmibIT7CbXS4y8OvJeSue9liJsja', NULL, '2022-04-29 12:16:44', '2022-04-29 12:16:44', NULL, NULL, NULL),
+(38, 'Ian Foreman', 'Castro', 'test@gmail.com', NULL, NULL, NULL, 2, NULL, NULL, '$2y$10$8y6P4q1Ycd9pI8aSy/3ay.8Nx6xUxzoTFlzA5mx9VbNbX9zu8uyG.', NULL, '2022-04-29 13:01:17', '2022-04-29 13:01:17', NULL, NULL, NULL),
+(39, 'Naida Howell', 'Long', 'student@gmail.com', NULL, NULL, NULL, 2, NULL, NULL, '$2y$10$jNbkPBARLwyugrjoN7jsceUTgAHgzQwt8kD8BXxR59eixH0vwAzti', NULL, '2022-04-29 17:55:10', '2022-04-29 17:55:10', NULL, NULL, NULL),
+(40, 'Catherine Sparks', 'Pace', 'evaluator@gmail.com', NULL, NULL, NULL, 4, NULL, NULL, '$2y$10$HQVtBwePFhPtfiKNUBZV1.zHXur8Aa0C3W34PGNQKxEgVLQn62gIm', NULL, '2022-04-29 18:32:24', '2022-04-29 18:32:24', NULL, NULL, NULL),
+(41, 'Emery Hahn', 'Sawyer', 'coach@gmail.com', NULL, NULL, NULL, 3, NULL, NULL, '$2y$10$9CMH/UOOKzpqs6DLHncNhOsvOIApMPgBitag.9mpdvOtBOYUR3hiy', NULL, '2022-04-29 18:33:52', '2022-04-29 18:33:52', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -736,7 +742,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `packages`
 --
 ALTER TABLE `packages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `pages`

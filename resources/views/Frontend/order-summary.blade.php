@@ -5,10 +5,47 @@
 <div class="main-div instructor-img">
     <div class="">
         <div class="top-home-section">
-            {{-- @include('Frontend.Layout.body.header') --}}
             @include('Frontend.Layout.body.navbar')
-
             <div class="container">
+                <div data-wow-delay="0.30s" class="first-section card-type-back-color white-backgroung-color">
+                    <div class="order-heading mt3 mb3">
+                        <h1>Order Summary</h1>
+                    </div>
+
+                    <div class="box-grey-backcolor mt2 wow bounceIn">
+                        <div class="order-box-content">
+                            <h4>Plan</h4>
+                            <h4>{{ $getOrderSummary->title }}</h4>
+                        </div>
+                        <div class="order-box-content mt1">
+                            <h4>Duration</h4>
+                            <h4>Until Canceled</h4>
+                        </div>
+                        <div class="box-line mt1">
+                            <span></span>
+                        </div>
+                        <div class="order-box-content mt5">
+                            <h4>Subtotal</h4>
+                            <h4>${{ $getOrderSummary->amount }}</h4>
+                        </div>
+                        <div class="order-box-content mt1">
+                            <h4>Sales Tax ( {{ $getOrderSummary->sale_tax }} %) </h4>
+                            <h4>${{ $getOrderSummary->total_tax }}</h4>
+                        </div>
+                        <div class="box-line mt2">
+                            <span></span>
+                        </div>
+                        <div class="order-box-content mt3 mb3">
+                            <h4>Billed Yearly</h4>
+                            <h4>${{ $getOrderSummary->bill_yearly }}</h4>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center mt2">
+                        <a href="{{ route('AmeaToday_checkout',$getOrderSummary->id) }}" class="btn-width"><button class="black-btn">Checkout</button></a>
+                    </div>
+                </div>
+            </div>
+            {{-- <div class="container">
                 <div data-wow-delay="0.30s" class="first-section card-type-back-color white-backgroung-color">
                     <div class="order-heading mt3 mb3">
                         <h1>Order Summary</h1>
@@ -160,7 +197,7 @@
                         </div>
                     </div> -->
                 </div>
-            </div>
+            </div> --}}
             @include('Frontend.Layout.body.footer')
         </div>
 

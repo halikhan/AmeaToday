@@ -14,11 +14,13 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="tabs-main-heading mt3 mb3">
-                        <h1> @if (Auth::user()->type == 2)Student
+                        <h1>
+                            @if (Auth::user()->type == 2)Student
                             @elseif (Auth::user()->type == 3)Coach
                             @elseif (Auth::user()->type == 4)Evaluator
                             @endif
-                            -Profile</h1>
+                            -Profile
+                        </h1>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -33,8 +35,8 @@
                     @enderror
                 </div>
                 <div class="col-lg-6">
-
                 </div>
+
                 <div class="col-lg-6">
                     <div class="login-content2 placeholder-white">
                         <input type="text" name="last_name" value="{{ $edit_data->last_name }}" id=""
@@ -47,8 +49,8 @@
                     @enderror
                 </div>
                 <div class="col-lg-6">
-
                 </div>
+
                 <div class="col-lg-6">
                     <div class="login-content2 placeholder-white">
                         <input type="email" name="email" value="{{ $edit_data->email }}"

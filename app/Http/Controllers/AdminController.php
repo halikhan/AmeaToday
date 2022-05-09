@@ -2,19 +2,22 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
+
+
 class AdminController extends Controller
-{ /**
+{
+
+    /**
     * Display a listing of the resource.
     *
     * @return \Illuminate\Http\Response
     */
-
-
 
    public function index()
    {
@@ -142,6 +145,7 @@ class AdminController extends Controller
        Storage::delete('public/uploads/cms/'.$cms->image);
        $cms->delete();
        return redirect()->route('admin');
+
    }
 
 }

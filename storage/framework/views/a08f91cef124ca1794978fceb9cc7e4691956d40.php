@@ -4,10 +4,13 @@
     <div class="">
         <div class="top-home-section">
             <?php echo $__env->make('Frontend.Layout.body.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+
             <div class="container">
+                <?php $__currentLoopData = $getOrderSummaryPagecontent; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
                 <div data-wow-delay="0.30s" class="first-section card-type-back-color white-backgroung-color">
                     <div class="order-heading mt3 mb3">
-                        <h1>Order Summary</h1>
+                        <h1><?php echo e($data->title); ?></h1>
                     </div>
 
                     <div class="box-grey-backcolor mt2 wow bounceIn">
@@ -42,7 +45,9 @@
                         <a href="<?php echo e(route('AmeaToday_checkout',$getOrderSummary->id)); ?>" class="btn-width"><button class="black-btn">Checkout</button></a>
                     </div>
                 </div>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
+
             
             <?php echo $__env->make('Frontend.Layout.body.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         </div>

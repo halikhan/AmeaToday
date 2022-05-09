@@ -16,9 +16,10 @@ class SocialController extends Controller
     public function index()
     {
         // dd('here');
-        $getCMS = sociallink::all();
         // dd( $getCMS);
+        $getCMS = sociallink::all();
         return view('sociallinks.index',get_defined_vars());
+
     }
 
     /**
@@ -77,6 +78,7 @@ class SocialController extends Controller
         // dd($id);
         $edit_data = sociallink::find($id);
         return view('sociallinks.edit',get_defined_vars());
+
     }
 
     /**
@@ -113,5 +115,7 @@ class SocialController extends Controller
     {
         sociallink::find($id)->delete();
         return redirect()->route('social');
+
     }
+
 }

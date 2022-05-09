@@ -49,11 +49,13 @@ class PackageManagementController extends Controller
         // dd($request->all());
         // $getUser = User::find(Auth::user()->id);
         $this->validate($request, [
+
             'title' => "required|max:255",
             'type' => "required|max:255",
             'amount' => "required|max:255",
             'deatails' => "required|max:255",
             'sale_tax' => "required|max:255",
+
         ]);
 
         $cms = new packages();
@@ -113,11 +115,13 @@ class PackageManagementController extends Controller
     {
         // dd($request->all());
         $this->validate($request, [
+
             'title' => "required|max:255",
             'type' => "required|max:255",
             'amount' => "required|max:255",
             'sale_tax' => "required|max:255",
             'deatails' => "required|max:255",
+
         ]);
 
         $cms = packages::findOrFail($id);
@@ -135,6 +139,7 @@ class PackageManagementController extends Controller
         $cms->mid_details = $request->mid_details;
         $cms->deatails = $request->deatails;
         $cms->save();
+        
         $notification = array('message' =>'Your data updateed Successfully ' , 'alert-type'=>'success' );
         return redirect()->route('Package')->with($notification);
 

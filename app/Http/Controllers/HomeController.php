@@ -24,7 +24,6 @@ class HomeController extends Controller
 
         // dd('home');
         // $getCMS = User::where('type', '1')->get();
-
         $getsociallinks = sociallink::all();
         $getSponsors = cms::all();
         $getGallery = Blog::all();
@@ -186,6 +185,7 @@ class HomeController extends Controller
 
         // dd('privateInstrumental');
         $getCopyrights = Config::where('email_type','Copyrights')->get();
+        $getOrderSummaryPagecontent = Frontend::where('page', '21')->get();
         $getOrderSummary = packages::find($id);
         //  $getOrderSummary = packages::findORfail($id);
         // $getOrderSummary->title = $request->title;
@@ -194,18 +194,19 @@ class HomeController extends Controller
         // $getOrderSummary->save();
         return view('Frontend.order-summary',get_defined_vars());
     }
+
     public function checkout(Request $request, $id){
 
         if(!Auth::check()) {
             // dd('No order');
-            $notification = array('UserMessage' =>'Kindly signed up first' , 'alert-type'=>'error' );
+            $notification = array('UserMessage' =>'Dear User, please Login first' , 'alert-type'=>'error' );
              return back()->with($notification);
         }else{
 
             $getUser = User::find(Auth::user()->id);
             // dd($getUser);
             $getCopyrights = Config::where('email_type','Copyrights')->get();
-            if(!empty($getOrderSummary)){}
+            // if(!empty($getOrderSummary)){}
             $getOrderSummary = packages::find($id);
             return view('Frontend.checkout',get_defined_vars());
         }

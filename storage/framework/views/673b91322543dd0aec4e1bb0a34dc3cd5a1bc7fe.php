@@ -30,8 +30,7 @@
                                 <h5>Page Details </h5>
                             </div>
                             <div class="col-md-4" align="right">
-                                <a class="btn btn-primary" href="<?php echo e(route('PageName_create')); ?>"> <i
-                                        data-feather="plus-square"> </i> Create</a>
+                                <a type="button" class="btn btn-primary for-font-color" href="<?php echo e(route('PageName_create')); ?>">Create </a>
                             </div>
                         </div>
                     </div>
@@ -52,7 +51,7 @@
                                             <td><?php echo e($value->page_name); ?></td>
                                             <td>
                                                 
-                                                <button class="btn btn-success btn-xs" type="button" data-original-title="btn btn-danger btn-xs" title=""> <a href="<?php echo e(route('PageName_edit', $value->id)); ?>">Edit</a></button>
+                                                <button class="btn btn-success btn-xs for-font-color" type="button" data-original-title="btn btn-danger btn-xs" title=""> <a href="<?php echo e(route('PageName_edit', $value->id)); ?>">Edit</a></button>
                                              </td>
                                         </tr>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

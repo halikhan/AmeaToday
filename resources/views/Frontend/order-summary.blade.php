@@ -6,10 +6,12 @@
     <div class="">
         <div class="top-home-section">
             @include('Frontend.Layout.body.navbar')
+
             <div class="container">
+                @foreach ( $getOrderSummaryPagecontent as $data)
                 <div data-wow-delay="0.30s" class="first-section card-type-back-color white-backgroung-color">
                     <div class="order-heading mt3 mb3">
-                        <h1>Order Summary</h1>
+                        <h1>{{ $data->title }}</h1>
                     </div>
 
                     <div class="box-grey-backcolor mt2 wow bounceIn">
@@ -44,7 +46,9 @@
                         <a href="{{ route('AmeaToday_checkout',$getOrderSummary->id) }}" class="btn-width"><button class="black-btn">Checkout</button></a>
                     </div>
                 </div>
+                @endforeach
             </div>
+
             {{-- <div class="container">
                 <div data-wow-delay="0.30s" class="first-section card-type-back-color white-backgroung-color">
                     <div class="order-heading mt3 mb3">

@@ -8,7 +8,7 @@ $logo_add = App\Models\LogoManager::where('title','logo')->first();
 
 <div data-wow-delay="0.20s" class="center-logo mt7 wow bounceIn for-class-relative">
     <span class="for-text-over-logo">Join AMEAtoday</span>
-    <a href="{{ route('amea-today') }}"> <img src="{{ asset('storage/uploads/logo/'.$logo_add->image) }}" alt=""></a>
+    <a href="{{ route('AmeaToday') }}"> <img src="{{ asset('storage/uploads/logo/'.$logo_add->image) }}" alt=""></a>
 </div>
 
 

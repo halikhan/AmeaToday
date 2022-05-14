@@ -32,7 +32,7 @@
                         <td>{{ $value->name }}</td>
                         <td>{{ $value->email }}</td>
                         <td>{{ $value->contact }}</td>
-                        <td><a class="btn btn-success" type="button" href="{{ route('amea-today', $value->id )}}">Select</a></td>
+                        <td><a class="btn btn-success" type="button" href="{{ route('AmeaToday', $value->id )}}">Select</a></td>
                       </tr>
                       @endforeach
                     </tbody>

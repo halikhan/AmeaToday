@@ -85,4 +85,11 @@ class Coachescontroller extends Controller
     {
         //
     }
+
+    public function Coach_Card_view()
+    {
+        // dd('profile');
+        return view('user_dashboard.Coaches.profile');
+        
+    }
 }

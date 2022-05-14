@@ -1,5 +1,6 @@
 <?php $__env->startSection('content'); ?>
 
+ 
 <div class="main-div instructor-img">
     <div class="">
         <div class="top-home-section">
@@ -13,6 +14,8 @@
                     <div class="order-box-line mt1">
                         <span></span>
                     </div>
+                    <form action="<?php echo e(route('checkout')); ?>" enctype="multipart/form-data" method="get">
+                        <?php echo csrf_field(); ?>
                     <div class="row">
                         <div class="col-lg-6 padding-for-left-right wow bounceIn">
                             <div class="checkout-content d-flex">
@@ -22,48 +25,147 @@
                                     <p>Sign up</p>
                             </div>
                             <div class="checkout-content">
-                                <?php if(Auth::user()): ?>
-                                <p>Sign in as a <?php echo e(@$getUser->email); ?>
+
+                                
+
+
+                                <?php if(Session::has('User_Signup')): ?>
+                                <p>Sign in as a <?php echo e(Session::get('User_Signup')['email']); ?>
 
                                 </p>
                                 <?php else: ?>
                                 <p>Sign in as a abc@example.com</p>
                                 <?php endif; ?>
+
                             </div>
                             <div class="checkout-input">
                                 <label for="">Email</label>
-                                <input type="text">
+                                <input id="mail-email" name="email" type="text">
+                                <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    <p class="help-block" style="color: red">
+                                        <?php echo e($errors->first('email')); ?>
+
+                                    </p>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                             </div>
                             <div class="checkout-input">
                                 <label for="">First name</label>
-                                <input type="text">
+                                <input name="name"  type="text">
+                                <?php $__errorArgs = ['name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    <p class="help-block" style="color: red">
+                                        <?php echo e($errors->first('name')); ?>
+
+                                    </p>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                             </div>
                             <div class="checkout-input">
                                 <label for="">Last name</label>
-                                <input type="text">
+                                <input name="last_name" type="text">
+                                <?php $__errorArgs = ['last_name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    <p class="help-block" style="color: red">
+                                        <?php echo e($errors->first('last_name')); ?>
+
+                                    </p>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                             </div>
                             <div class="checkout-input">
                                 <label for="">Address</label>
-                                <input type="text">
+                                <input name="address" type="text">
+                                <?php $__errorArgs = ['address'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    <p class="help-block" style="color: red">
+                                        <?php echo e($errors->first('address')); ?>
+
+                                    </p>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                             </div>
                             <div class="checkout-input">
                                 <label for="">City</label>
-                                <input type="text">
+                                <input name="city" type="text">
+                                <?php $__errorArgs = ['city'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    <p class="help-block" style="color: red">
+                                        <?php echo e($errors->first('city')); ?>
+
+                                    </p>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                             </div>
                             <div class="checkout-input">
                                 <label for="">Country</label>
-                                <input type="text">
+                                <input name="country" type="text">
+                                <?php $__errorArgs = ['country'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    <p class="help-block" style="color: red">
+                                        <?php echo e($errors->first('country')); ?>
+
+                                    </p>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                             </div>
                             <div class="checkout-input">
                                 <label for="">Zip Code</label>
-                                <input type="text">
+                                <input name="zip_code" type="number">
+                                <?php $__errorArgs = ['zip_code'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                    <p class="help-block" style="color: red">
+                                        <?php echo e($errors->first('zip_code')); ?>
+
+                                    </p>
+                                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                             </div>
                         </div>
+
                         <div class="col-lg-6 wow bounceIn">
                             <div class="box-grey-backcolor mb3">
                                 <div class="order-box-content">
                                     <h5>Plan</h5>
                                     <h4><?php echo e(@$getOrderSummary->title); ?></h4>
+                                <input value="<?php echo e(@$getOrderSummary->title); ?>" name="package_title" type="hidden" placeholder="email">
+
                                 </div>
                                 <div class="order-box-content mt1">
                                     <h5>Duration</h5>
@@ -86,14 +188,16 @@
                                 <div class="order-box-content mt3 mb3">
                                     <h5>Billed Yearly</h5>
                                     <h5>$<?php echo e(@$getOrderSummary->bill_yearly); ?></h5>
+                                    <input value="<?php echo e(@$getOrderSummary->bill_yearly); ?>" name="package_amount" type="hidden" placeholder="email">
                                 </div>
                             </div>
                             <div class="mt7">
-                                <a href="<?php echo e(route('AmeaToday_buy-now')); ?>" class="btn-width"><button
-                                        class="black-btn">Buy Now</button></a>
+                                
+                                        <button  type="submit" class="black-btn">Buy Now</button>
                             </div>
                         </div>
                     </div>
+                </form>
                     
                 </div>
             </div>

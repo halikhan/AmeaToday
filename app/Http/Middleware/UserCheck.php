@@ -17,10 +17,14 @@ class UserCheck
      */
     public function handle(Request $request, Closure $next)
     {
+        if(session()->has('authenticated')) {
+            return $next($request);
+        }
         if(Auth::check() && Auth::user()->type != 1) {
             return $next($request);
         }
 
         return redirect()->route('login-page');
+        // return redirect()->route('login-page');
     }
 }

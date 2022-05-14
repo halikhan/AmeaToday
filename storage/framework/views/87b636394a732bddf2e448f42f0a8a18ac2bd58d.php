@@ -65,8 +65,6 @@ class="<?php echo e(Request::is('home') ? 'grey-background for-home-nav-back col
                         </button>
                     </div>
                 </li>
-
-
                 <li>
                     <div class="dropdown">
                         <button class="dropbtn"><a href="<?php echo e(route('educators')); ?>" class="<?php echo e(Route::currentRouteName()=='educators' ? 'active' : ''); ?>">Educators(K-12)</a>
@@ -94,7 +92,7 @@ class="<?php echo e(Request::is('home') ? 'grey-background for-home-nav-back col
                             <a href="<?php echo e(route('private-dance')); ?>" class="<?php echo e(Route::currentRouteName()=='private-dance' ? 'active' : ''); ?>">Dance</a>
                             <a href="<?php echo e(route('private-vocal')); ?>" class="<?php echo e(Route::currentRouteName()=='private-vocal' ? 'active' : ''); ?>">Vocal</a>
                             <a href="<?php echo e(route('private-all-state-pre')); ?>" class="<?php echo e(Route::currentRouteName()=='private-all-state-pre' ? 'active' : ''); ?>">All State Prep</a>
-                            <a href="<?php echo e(route('amea-today')); ?>" class="<?php echo e(Route::currentRouteName()=='amea-today' ? 'active' : ''); ?>">Become a Private Instructor</a>
+                            <a href="<?php echo e(route('AmeaToday')); ?>" class="<?php echo e(Route::currentRouteName()=='amea-today' ? 'active' : ''); ?>">Become a Private Instructor</a>
                         </div>
                     </div>
                 </li>

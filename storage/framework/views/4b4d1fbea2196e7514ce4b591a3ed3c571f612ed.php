@@ -42,7 +42,7 @@
 
                 <div data-wow-delay="0.50s" class="video-content-center wow fadeIn">
                     <div class="logo-img">
-                        <a href="<?php echo e(route('amea-today')); ?>"> <img
+                        <a href="<?php echo e(route('AmeaToday')); ?>"> <img
                                 src="<?php echo e(asset('storage/uploads/logo/' . $logo_add->image)); ?>" alt=""></a>
                     </div>
                     
@@ -58,7 +58,7 @@
                             <i class="fa fa-play " id="playIcon" aria-hidden="true"></i>
                         </div>
                     </a>
-                    <a href="<?php echo e(route('amea-today')); ?>" class="mt3"><button class="round-tran-btn">
+                    <a href="<?php echo e(route('AmeaToday')); ?>" class="mt3"><button class="round-tran-btn">
                             Click here to join</button></a>
 
                 </div>

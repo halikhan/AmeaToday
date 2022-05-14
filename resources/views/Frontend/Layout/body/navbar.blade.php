@@ -253,8 +253,6 @@ class="{{ Request::is('home') ? 'grey-background for-home-nav-back color-tranpar
                         </button>
                     </div>
                 </li>
-
-
                 <li>
                     <div class="dropdown">
                         <button class="dropbtn"><a href="{{ route('educators') }}" class="{{ Route::currentRouteName()=='educators' ? 'active' : '' }}">Educators(K-12)</a>
@@ -282,7 +280,7 @@ class="{{ Request::is('home') ? 'grey-background for-home-nav-back color-tranpar
                             <a href="{{ route('private-dance') }}" class="{{ Route::currentRouteName()=='private-dance' ? 'active' : '' }}">Dance</a>
                             <a href="{{ route('private-vocal') }}" class="{{ Route::currentRouteName()=='private-vocal' ? 'active' : '' }}">Vocal</a>
                             <a href="{{ route('private-all-state-pre') }}" class="{{ Route::currentRouteName()=='private-all-state-pre' ? 'active' : '' }}">All State Prep</a>
-                            <a href="{{ route('amea-today') }}" class="{{ Route::currentRouteName()=='amea-today' ? 'active' : '' }}">Become a Private Instructor</a>
+                            <a href="{{ route('AmeaToday') }}" class="{{ Route::currentRouteName()=='amea-today' ? 'active' : '' }}">Become a Private Instructor</a>
                         </div>
                     </div>
                 </li>

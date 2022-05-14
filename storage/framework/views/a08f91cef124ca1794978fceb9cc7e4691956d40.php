@@ -7,7 +7,6 @@
 
             <div class="container">
                 <?php $__currentLoopData = $getOrderSummaryPagecontent; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-
                 <div data-wow-delay="0.30s" class="first-section card-type-back-color white-backgroung-color">
                     <div class="order-heading mt3 mb3">
                         <h1><?php echo e($data->title); ?></h1>

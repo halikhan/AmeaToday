@@ -1,11 +1,11 @@
 <?php $__env->startSection('content'); ?>
-
+ 
 <div class="for-content-tabs">
     <div class="tab-content" id="v-pills-tabContent">
 
         <?php if(Session::has('message')): ?>
-        <p class="alert
-        <?php echo e(Session::get('alert-class', 'alert-success')); ?>"><?php echo e(Session::get('message')); ?></p>
+        <p class="alert <?php echo e(Session::get('alert-class', 'alert-success')); ?>">
+            <?php echo e(Session::get('message')); ?></p>
         <?php endif; ?>
         <form action="<?php echo e(route('User_Profile_update', $edit_data->id)); ?>" enctype="multipart/form-data"
             method="post">

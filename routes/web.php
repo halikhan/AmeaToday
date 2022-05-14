@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AudioController;
 use App\Http\Controllers\BackgroundAudioController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CmsController;
 use App\Http\Controllers\ConfigurationController;
 use App\Http\Controllers\FAQController;
@@ -14,6 +15,7 @@ use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\LogoManagerController;
 use App\Http\Controllers\PackageManagementController;
 use App\Http\Controllers\PageNameController;
+use App\Http\Controllers\PayPalController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\SubcriptionController;
 use App\Http\Controllers\UserDashboard\Coachescontroller;
@@ -264,7 +266,7 @@ Route::middleware(['preventBackHistory','isAdmin'])->group(function () {
     Route::get('/', [HomeController::class, 'home'])->name('home');
     Route::get('About', [HomeController::class, 'about'])->name('about-amea');
     Route::get('BandRoom', [HomeController::class, 'BandRoom'])->name('Band-Room');
-    Route::get('AmeaToday', [HomeController::class, 'AmeaToday'])->name('amea-today');
+    Route::get('AmeaToday', [HomeController::class, 'AmeaToday'])->name('AmeaToday');
     Route::get('educators', [HomeController::class, 'educators'])->name('educators');
     Route::get('educators-Boosters', [HomeController::class, 'educatorsBoosters'])->name('educators-Boosters');
     Route::get('educators-by-laws', [HomeController::class, 'educatorsbylaws'])->name('educators-by-laws');
@@ -314,10 +316,22 @@ Route::middleware(['preventBackHistory','UserCheck'])->group(function () {
     Route::post('User_Profile_update/{id}', [UserProfilecontroller::class, 'update'])->name('User_Profile_update');
     Route::get('User_Password_edit/{id}', [UserPasswordcontroller::class, 'edit'])->name('User_Password_edit');
     Route::post('User_Password_update/{id}', [UserPasswordcontroller::class, 'update'])->name('User_Password_update');
+
     Route::get('coaches', [Coachescontroller::class, 'index'])->name('coaches');
     Route::get('Evaluators', [EvaluatorsController::class, 'index'])->name('Evaluators');
 
+    Route::get('coach_profile', [Coachescontroller::class, 'Coach_Card_view'])->name('coach_profile');
+
+
+
 });
+
+    Route::get('checkout', [CheckoutController::class, 'store'])->name('checkout');
+    Route::post('StorePaymentDetails', [CheckoutController::class, 'StorePaymentDetails'])->name('StorePaymentDetails');
+
+    Route::get('payment', [PayPalController::class, 'payment'])->name('payment');
+    Route::get('cancel', [PayPalController::class, 'cancel'])->name('payment.cancel');
+    Route::get('payment/success', [PayPalController::class, 'success'])->name('payment.success');
 
 
 

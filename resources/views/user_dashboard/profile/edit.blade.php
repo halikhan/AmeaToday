@@ -1,12 +1,15 @@
 @extends('user_dashboard.layouts.user-master')
 @section('content')
-
+ {{-- <?php
+$data['User_Signup'] = Session::get('User_Signup');
+dd($data);
+?> --}}
 <div class="for-content-tabs">
     <div class="tab-content" id="v-pills-tabContent">
 
         @if(Session::has('message'))
-        <p class="alert
-        {{ Session::get('alert-class', 'alert-success') }}">{{Session::get('message') }}</p>
+        <p class="alert {{ Session::get('alert-class', 'alert-success') }}">
+            {{Session::get('message') }}</p>
         @endif
         <form action="{{ route('User_Profile_update', $edit_data->id) }}" enctype="multipart/form-data"
             method="post">

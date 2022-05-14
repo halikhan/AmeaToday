@@ -31,7 +31,7 @@
                         <td><?php echo e($value->name); ?></td>
                         <td><?php echo e($value->email); ?></td>
                         <td><?php echo e($value->contact); ?></td>
-                        <td><a class="btn btn-success" type="button" href="<?php echo e(route('amea-today', $value->id )); ?>">Select</a></td>
+                        <td><a class="btn btn-success" type="button" href="<?php echo e(route('AmeaToday', $value->id )); ?>">Select</a></td>
                       </tr>
                       <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </tbody>

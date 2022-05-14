@@ -1,6 +1,9 @@
 @extends('Frontend.Layout.master')
 @section('content')
-
+{{-- <?php
+$data['User_Signup'] = Session::get('User_Signup');
+dd($data)
+?> --}}
 <div class="main-div instructor-img" >
     <div class="">
         <div class="top-home-section">

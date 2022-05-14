@@ -14,8 +14,11 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request)
     {
+        // dd("dd");
+        if(session()->get('User_Signup')['email'] == $request->email) {
 
-
+            return redirect()->route('AmeaToday_user-dashboard');
+        }
         if (!$request->expectsJson()) {
             return route('login');
         }

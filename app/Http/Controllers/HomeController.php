@@ -14,6 +14,7 @@ use App\Models\User;
 use App\Models\video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -121,7 +122,6 @@ class HomeController extends Controller
     }
 
 
-
     public function privateInstructors(){
 
         // dd('educators-fund-raising');
@@ -197,19 +197,20 @@ class HomeController extends Controller
 
     public function checkout(Request $request, $id){
 
-        if(!Auth::check()) {
-            // dd('No order');
-            $notification = array('UserMessage' =>'Dear User, please Login first' , 'alert-type'=>'error' );
-             return back()->with($notification);
-        }else{
+        // $data['User_Signup'] = Session::get('User_Signup');
+        // if(!Auth::check()) {
+        //     $notification = array('UserMessage' =>'Dear User, please Login first' , 'alert-type'=>'error' );
+        //      return back()->with($notification);
+        // }else{
 
-            $getUser = User::find(Auth::user()->id);
-            // dd($getUser);
-            $getCopyrights = Config::where('email_type','Copyrights')->get();
-            // if(!empty($getOrderSummary)){}
-            $getOrderSummary = packages::find($id);
-            return view('Frontend.checkout',get_defined_vars());
-        }
+
+        // }
+        // $getUser = User::find(Auth::user()->id);
+        // dd($getUser);
+        $getCopyrights = Config::where('email_type','Copyrights')->get();
+
+        $getOrderSummary = packages::find($id);
+        return view('Frontend.checkout',get_defined_vars());
 
     }
 
@@ -225,9 +226,16 @@ class HomeController extends Controller
 
         // dd('AmeaToday_Bynow');
         $getCopyrights = Config::where('email_type','Copyrights')->get();
-        $edit_data = User::find(Auth::user()->id);
-        $notification = array('message' =>'Your data Inserted Successfully ' , 'alert-type'=>'success' );
-        return view('user_dashboard.profile.edit',get_defined_vars())->with($notification);
+
+        if(session()->has('authenticated')) {
+            return view('user_dashboard.profile.edit');
+        }else{
+            $edit_data = User::find(Auth::user()->id);
+            $notification = array('message' =>'Your data Inserted Successfully ' , 'alert-type'=>'success' );
+            return view('user_dashboard.profile.edit',get_defined_vars())->with($notification,);
+        }
+
     }
+
 
 }

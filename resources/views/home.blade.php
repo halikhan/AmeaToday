@@ -43,7 +43,7 @@
 
                 <div data-wow-delay="0.50s" class="video-content-center wow fadeIn">
                     <div class="logo-img">
-                        <a href="{{ route('amea-today') }}"> <img
+                        <a href="{{ route('AmeaToday') }}"> <img
                                 src="{{ asset('storage/uploads/logo/' . $logo_add->image) }}" alt=""></a>
                     </div>
                     {{-- @include('Frontend.Layout.body.joinAmeaToday') --}}
@@ -59,7 +59,7 @@
                             <i class="fa fa-play " id="playIcon" aria-hidden="true"></i>
                         </div>
                     </a>
-                    <a href="{{ route('amea-today') }}" class="mt3"><button class="round-tran-btn">
+                    <a href="{{ route('AmeaToday') }}" class="mt3"><button class="round-tran-btn">
                             Click here to join</button></a>
 
                 </div>

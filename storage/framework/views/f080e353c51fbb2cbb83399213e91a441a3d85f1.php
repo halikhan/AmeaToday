@@ -1,7 +1,7 @@
 <?php $__env->startSection('content'); ?>
 
 <div class="main-div instructor-img">
-    
+
     <div class="">
         <div class="top-home-section">
 
@@ -12,7 +12,7 @@
         <div class="container">
             <div data-wow-delay="0.30s" class="first-section card-type-back-color">
 
-                <form class="form theme-form"id="" action="<?php echo e(route("FrontendUser_login")); ?>" enctype="multipart/form-data" method="post">
+                <form class="form theme-form" action="<?php echo e(route("FrontendUser_login")); ?>" enctype="multipart/form-data" method="post">
                     <?php echo csrf_field(); ?>
                 <div class="login-box box-grey-backcolor">
 
@@ -21,7 +21,7 @@
                         <h2>Log In</h2>
                         <span>New to this site?<a href="<?php echo e(route('signUp')); ?>">Sign Up</a></span>
 
-                        <input type="email" name="email" id="" placeholder="Email">
+                        <input type="email" name="email"  placeholder="Email">
                         <?php $__errorArgs = ['email'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -35,7 +35,7 @@ $message = $__bag->first($__errorArgs[0]); ?>
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
-                        <input type="password" name="password" id="" placeholder="Password">
+                        <input type="password" name="password"  placeholder="Password">
                         <?php $__errorArgs = ['password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :

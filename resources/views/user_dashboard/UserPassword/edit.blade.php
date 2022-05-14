@@ -8,6 +8,7 @@
         <p class="alert
         {{ Session::get('alert-class', 'alert-success') }}">{{Session::get('message') }}</p>
         @endif
+        {{-- $edit_data->id)  --}}
         <form action="{{ route('User_Password_update', $edit_data->id) }}" enctype="multipart/form-data"
             method="post">
             @csrf

@@ -17,6 +17,12 @@ class isAdmin
      */
     public function handle(Request $request, Closure $next)
     {
+        // dd("working");
+        // if(session()->get('User_Signup')['email'] == 'kigo@mailinator.com'){
+        //     dd("dd");
+        //     return redirect()->route('AmeaToday_user-dashboard');
+        // }
+
         if(Auth::check() && Auth::user()->type == 1) {
             return $next($request);
         }

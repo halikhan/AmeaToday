@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="main-div instructor-img">
-    
+
     <div class="">
         <div class="top-home-section">
 
@@ -13,7 +13,7 @@
         <div class="container">
             <div data-wow-delay="0.30s" class="first-section card-type-back-color">
 
-                <form class="form theme-form"id="" action="{{ route("FrontendUser_login") }}" enctype="multipart/form-data" method="post">
+                <form class="form theme-form" action="{{ route("FrontendUser_login") }}" enctype="multipart/form-data" method="post">
                     @csrf
                 <div class="login-box box-grey-backcolor">
 
@@ -22,13 +22,13 @@
                         <h2>Log In</h2>
                         <span>New to this site?<a href="{{ route('signUp') }}">Sign Up</a></span>
 
-                        <input type="email" name="email" id="" placeholder="Email">
+                        <input type="email" name="email"  placeholder="Email">
                         @error('email')
                         <p class="help-block" style="color: red">
                             {{ $errors->first('email') }}
                         </p>
                         @enderror
-                        <input type="password" name="password" id="" placeholder="Password">
+                        <input type="password" name="password"  placeholder="Password">
                         @error('password')
                         <p class="help-block" style="color: red">
                             {{ $errors->first('password') }}
